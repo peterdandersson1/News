@@ -1,0 +1,37 @@
+.editContainer {
+	margin-left: 100px;
+}
+
+.form-control {
+	max-width: 500px;
+}
+
+.inputLabel {
+	display: block;
+}
+
+.btn-sm {
+	margin: 2px;
+}
+
+.form-group {
+	position: relative;
+}
+
+.form-horizontal .form-group {
+	margin-left: 0px;
+}
+
+.form-required {
+	position: absolute;
+	left: -30px;
+	bottom: 11px;
+	top: auto;
+	height: 10px;
+	width: 10px;
+	color: red;
+}
+
+#textInput {
+	height: 400px;
+}

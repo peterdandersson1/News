@@ -1,0 +1,33 @@
+
+<!--det viktiga-->
+<div class="container">
+	<div ng-controller="ListCtrl">	
+		<div class="alert alert-warning" role="alert" ng-show="showSearch()">
+			<span><strong>Sökresultat: </strong> {{searchResult}}</span>
+			<button type="button" class="close" ng-click="quitSearch()">&times;</button>
+		</div>
+		<div ng-repeat="n in news | searchFilter | orderBy:'-date':false | filter:categoriesFilter" >
+			<div class="list-jumbotron jumbotron centering">
+				
+				<!-- Article header -->
+				<div class="article-header" style="background: url({{n.img}}) no-repeat; background-size: cover; background-position: center center">
+					<div class="overlay">
+						<h1 ng-click="goTo(n.$id)" id="articleHeadline">{{n.title}}</h1><br>
+					</div>
+				</div>
+				
+				<!-- Article content -->
+				<div class="articleContent">
+					<small id="authorText">Författare: {{n.author}}</small>
+				</div>
+
+				<!-- Edit controls -->
+				<div ng-show="changeUser()"name="editButton" class="deleteButton" >
+					<button ng-click="loadEdit(n.$id)" class="btn btn-link"><span class="glyphicon glyphicon-pencil"></span></button>
+					<button ng-click="removeArticle(n)" ng-show="changeUser()" class="btn btn-link" ><span class="glyphicon glyphicon-remove-circle"></span></button>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+</div>

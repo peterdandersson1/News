@@ -1,0 +1,62 @@
+
+<div ng-controller="NavCtrl">
+<nav class="navbar navbar-default ">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <div class="navbar-brand"><a ng-click="home()" href="#/route"><img src="img/group4news.png" alt="brand-logo" /></a></div>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li ng-class="{ active: isActive('/list')}"><span class="sr-only">(current)</span><a ng-click="home()" href="#/route">Start</a></li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" 
+          ng-class="{ active: isActive('/article')}">Kategorier<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li class="dropdown-li" ng-repeat="c in categories" ng-click="getFilter(c.$value)">{{c.$value}}</li>          
+          </ul>
+        </li>
+      </ul>
+
+      <form class="navbar-form navbar-left" ng-submit="searchText($event)" role="search">
+        <div class="form-group">
+          <input ng-model="searchString" type="text" class="form-control" id="searchText" placeholder="Sök" />
+        </div>
+        <button type="submit" class="btn btn-default" id="searchButton">Sök</button>
+      </form>
+
+      <span ng-class="{activeAdmin: changeUser()}" class="glyphicon glyphicon-user" ng-click="userMenuClicked()" ng-hide="userMenuVisible"></span>
+      <div ng-show="userMenuVisible">
+
+        <form novalidate name="loginInfo" ng-submit="LogInClicked($event)">
+
+          <ul class="nav navbar-nav admin-menu">
+            <span class="glyphicon glyphicon-chevron-right" ng-click="userMenuClicked()"></span>
+            <li ng-hide="changeUser()"><input type="text" name="user" ng-model="userInfo" class="form-control" placeholder="Användarnamn" id="logInElement" required /></li>
+            <li ng-hide="changeUser()"><input type="password" name="password" ng-model="passwordInfo" class="form-control" placeholder="Lösenord" id="logInElement" required /></li>
+            <li ng-show="changeUser()" id="loggedAs">{{currentUser}}</li>
+            <li><button ng-hide="changeUser()" class="btn btn-default" id="logButtons">Logga in</button></li>
+            <li><button type="button" ng-click="LogOutClicked()" ng-show="changeUser()" class="btn btn-default" id="logButtons">Logga ut</button></li>
+          </ul>
+        </form>
+      </div><br />
+      <div >
+        <a href="#/editArticle" ng-show="changeUser()" id="newArticleLink">Lägg till artikel</a>        
+      </div>
+      <!-- </li> -->
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+
+
+</div>
+

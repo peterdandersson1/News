@@ -1,0 +1,46 @@
+<div class="container">
+
+	<div ng-controller="ArticleViewCtrl" id="readArticleDiv">
+		<div class="page-header">
+			<div id="deleteButton">
+				<button ng-click="edit(article.$id)" ng-show="changeUser()" class="btn btn-link"><span class="glyphicon glyphicon-pencil"></span></button>
+				<button ng-click="remove(article)" ng-show="changeUser()" class="btn btn-link" ><span class="glyphicon glyphicon-remove-circle"></span></button>
+			</div>
+			<h1>{{article.title}}</h1>
+		</div>
+		<div class="jumbotron">
+			<img id="article-img" ng-src="{{article.img}}"/>
+			<p id="padDescription" ng-bind-html="articleHTML"></p>
+			<br /><p><b><i>{{article.author}}</i></b></p>
+		</div>
+	</div>
+	
+	<div ng-controller="commentCtrl" name="commentDiv">
+
+		<div ng-repeat="c in comments">
+			<div ng-show="changeUser()" id="deleteButton">
+				<button ng-click="deleteComment(c)" class="btn btn-link" ><span class="glyphicon glyphicon-remove-circle" ></span></button>
+			</div>
+			<div id="comments">
+				<p ng-bind-html="c.text"></p>
+				<p>- {{c.name}}</p>
+			</div>
+		</div>
+	
+		<div>
+			<form novalidate name="commentForm" ng-submit="addComment($event)" class="form-horizontal" role="form">
+				<div class="form-group">
+					<label for="comment">Kommentar:</label>
+		      		<textarea name="commentInput" type="text" ng-model="newComment" class="form-control" id="comment" required/></textarea><br>
+		      	</div>
+				<div class="form-group">
+		      		<label for="name">Namn:</label>
+		      		<input name="nameInput" type="text" ng-model="newName" class="form-control" id="name" required/><br>
+				</div>
+				<button name="addCommentButton" class="btn btn-primary">Lägg till</button>
+			</form>
+		</div>
+
+	</div>
+
+</div>

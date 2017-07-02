@@ -1,0 +1,38 @@
+
+<div ng-controller="editArticleCtrl" class="editContainer">
+
+	<form novalidate name="editArticleForm" ng-submit="validateAndSub($event)" class="form-horizontal" role="form">
+		<div class="form-group">
+			<label class="inputLabel">Rubrik: </label><input name="headerInput" type="text" ng-model="headerInput" class="form-control" required />
+			<span ng-show="editArticleForm.headerInput.$error.required && validationChecked" class="form-required glyphicon glyphicon-exclamation-sign"></span>
+		</div>
+			
+		<div class="form-group">	
+			<label class="inputLabel">Brödtext: </label><textarea name="textInput" id="textInput" type="text" ng-model="textInput" class="form-control" required></textarea>
+			<span ng-show="editArticleForm.textInput.$error.required && validationChecked" class="form-required glyphicon glyphicon-exclamation-sign"></span>
+		</div>
+
+		<div class="form-group">	
+			<label class="inputLabel">BildUrl: </label><input name="picInput" type="url" ng-model="pictureInput" class="form-control"/>
+			<span ng-show="editArticleForm.picInput.$error.url && validationChecked" class="form-required glyphicon glyphicon-exclamation-sign"></span>
+		</div>
+			
+		<div class="form-group">
+			<label class="inputLabel">Författare: </label><input name="authorInput" type="text" ng-model="authorInput" class="form-control" required />
+			<span ng-show="editArticleForm.authorInput.$error.required && validationChecked" class="form-required glyphicon glyphicon-exclamation-sign"></span>
+		</div>
+		<div class="form-group">
+			<label class="inputLabel">Kategori: </label>
+			<select name="categoryInput" ng-options="cat.$value for cat in categories" ng-model="selectedCat" class="form-control pull-left" required />
+			</select>
+			<button type="button" class="btn btn-primary btn-sm" ng-click="showAddCatForm()">Ny</button>
+			<button ng-show="selectedCat" type="button" class="btn btn-primary btn-sm" ng-click="removeCat()">Ta Bort</button>
+			<br/><br/>
+			<div ng-show="addCatFormVisible"><label class="inputLabel">Ny kategori: </label>
+			<input name="newCatInput" type="text" ng-model="newCatInput" class="form-control pull-left"/><button type="button" class="btn btn-success btn-sm pull-left" ng-click="addCategory()">Lägg till</button></div>
+			<span ng-show="editArticleForm.categoryInput.$error.required && validationChecked" class="form-required glyphicon glyphicon-exclamation-sign"></span>
+		</div>
+
+		<button type="submit" id="editArticleSubmitBtn" class="btn btn-primary">Skicka</button>
+	</form>
+</div>

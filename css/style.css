@@ -1,0 +1,37 @@
+/* #183A53 - blue */
+/* #FF0000 - red */
+
+
+html {
+	overflow-y: scroll; 
+    margin-top:0;
+    padding-top:0;
+}
+
+body{
+    margin-top:0;
+    padding-top:0;
+}
+
+a, .jumbotron h1 {
+	cursor: pointer;
+}
+
+.row {
+	margin-bottom: 20px;
+}
+
+.btn-success {
+	margin: 2px;
+}
+
+.btn-link {
+	color: #C60000;
+	z-index: 100;
+}
+
+.btn-link:hover,
+.btn-link:focus {
+	color: #183A53;
+	text-decoration: none;
+}

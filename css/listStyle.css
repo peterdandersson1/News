@@ -1,0 +1,61 @@
+#articleHeadline {
+	font-size: 35px;
+	padding-left: 25px;
+	line-height: 100px;
+	color: white;
+	z-index: 20;
+}
+.alert {
+	max-width: 720px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#authorText {
+	font-style: italic;
+}
+
+.centering {
+	padding-top: 30px;
+}
+
+.list-jumbotron {
+	max-width: 720px;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #f7f7f7;
+  	border: solid #ccc 1px;
+  	border-radius: 4px;
+  	position: relative;
+}
+
+.article-header {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100px;
+	overflow: hidden;
+	border-radius: 4px 4px 0 0;
+}
+
+.overlay {
+	background: rgba(13, 53, 81, 0.7);
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100px;
+	z-index: 5;
+}
+
+.articleContent {
+	margin-top: 100px;
+	margin-bottom: -18px;
+}
+
+.deleteButton {
+	position: absolute;
+	right: 0;
+	top: 100px;
+}
